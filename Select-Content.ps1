@@ -15,17 +15,15 @@
     This example searches all *.log files within a directory for any email addresses.
     Get-ChildItem "C:\Temp\Logs\*" -File -Filter *.log | Select-Content -Pattern '\b\w+([-+.'']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*\b'
 .INPUTS
-    Inputs to this cmdlet (if any)
+    -Path               : Single or multiple file paths to process.
+    -Pattern            : Regular expression pattern to select from file content.
+    -UniquePatternGroup : Index number of regex group to use for unique comparison.
 .OUTPUTS
-    Output from this cmdlet (if any)
+    Object array of all Regular Expression Match items.
 .NOTES
     General notes
-.COMPONENT
-    The component this cmdlet belongs to
-.ROLE
-    The role this cmdlet belongs to
 .FUNCTIONALITY
-    The functionality that best describes this cmdlet
+    Select regex pattern from file(s).
 #>
 Function Select-Content {
     [CmdletBinding(ConfirmImpact = 'Medium')]
